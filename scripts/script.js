@@ -88,10 +88,18 @@ function operate(operator, a, b) {
   }
 }
 
+/**
+ * Create click handlers for all of the buttons
+ */
 const buttons = document.querySelectorAll(".button");
 
 buttons.forEach((button) => {
   button.addEventListener("click", (event) => {
-    console.log(event.target.textContent);
+    updateDisplay(event.target.textContent);
   });
 });
+
+function updateDisplay(str) {
+  const display = document.querySelector("#display");
+  display.value = str;
+}
