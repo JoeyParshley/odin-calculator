@@ -24,7 +24,19 @@
   cursor: pointer;
 }
 
-.button:hover {
+.button:hover,
+.button.disabled,
+.button.button.disabled:hover,
+.button.disabled:focus {
+  box-shadow: none;
+}
+
+.button.disabled,
+.button.disabled:focus {
+  cursor: unset;
+  background-color: indigo;
+  color: white;
+  opacity: 30%;
   box-shadow: none;
 }
 

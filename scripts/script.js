@@ -9,12 +9,14 @@
 /**
  * Create two number variables and an operator
  */
-const num1 = 0;
-const num2 = 0;
-const operaator = "";
-let enableNumbers = true;
-let enableOperators = false;
-let enableEquals = false;
+let num1;
+let num2;
+let operaator;
+let enableNumbers;
+let enableOperators;
+let enableEquals;
+const numberTextContent = "0,1,2,3,4,5,6,7,8,9,.".split(",");
+const operatorTextContent = "+,-,*,/".split(",");
 const display = document.querySelector("#display");
 const buttons = document.querySelectorAll(".button");
 
@@ -114,9 +116,17 @@ function operate(operator, a, b) {
  */
 buttons.forEach((button) => {
   button.addEventListener("click", (event) => {
+    if (event.target.classList.contains("disabled")) return;
     updateDisplay(event.target.textContent);
   });
 });
+
+function setButtonState(button, enable) {
+  console.log("button", button);
+  enable
+    ? button.classList.remove("disabled")
+    : button.classList.add("disabled");
+}
 
 /**
  *
@@ -126,6 +136,16 @@ function initializeCalculator() {
   enableOperators = enableEquals = false;
   enableNumbers = true;
   updateDisplay("0");
+  buttons.forEach((button) => {
+    let text = button.textContent;
+    if (numberTextContent.includes(text)) {
+      setButtonState(button, enableNumbers);
+    } else if (operatorTextContent.includes(text)) {
+      setButtonState(button, enableOperators);
+    } else if (text === "=") {
+      setButtonState(button, enableEquals);
+    }
+  });
 }
 function updateDisplay(str) {
   // initialize calculator
