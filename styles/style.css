@@ -1,0 +1,44 @@
+.container {
+  padding: 20px;
+  background-color: lavender;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 20px;
+  width: 860px;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  flex: 1 1 160px;
+  padding: 40px 20px;
+  background-color: white;
+  color: indigo;
+  border: 2px solid indigo;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px indigo;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+
+.button:hover {
+  box-shadow: none;
+}
+
+.button:focus {
+  color: white;
+  background-color: indigo;
+  opacity: 50%;
+}
+
+input.button {
+  box-shadow: inset -1px -1px 10px indigo;
+  cursor: default;
+}
+
+input.button:hover {
+  box-shadow: inset -1px -1px 10px indigo;
+}
