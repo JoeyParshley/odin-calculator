@@ -58,6 +58,8 @@ function divide(a, b) {
 }
 
 /**
+ * operate
+ *              - based on operator, chooses the operation to perform on the two given numbers.
  *
  * @param {*} operator string +, -, *, /
  * @param {*} a         number
