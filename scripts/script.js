@@ -49,3 +49,11 @@ function multiply(a, b) {
 function divide(a, b) {
   return a / b;
 }
+
+/**
+ * Create two number variables and an operator
+ */
+
+const num1 = 0;
+const num2 = 0;
+const operaator = "";
