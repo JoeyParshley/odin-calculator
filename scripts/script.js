@@ -12,6 +12,11 @@
 const num1 = 0;
 const num2 = 0;
 const operaator = "";
+let enableNumbers = true;
+let enableOperators = false;
+let enableEquals = false;
+const display = document.querySelector("#display");
+const buttons = document.querySelectorAll(".button");
 
 /**
  * add
@@ -90,16 +95,41 @@ function operate(operator, a, b) {
 
 /**
  * Create click handlers for all of the buttons
+ *
+ *  -   initialize number count
+ *  -   initialize operator boolean for [+, -, *, /]
+ *  -   disable operator keys
+ *  -   check if number is a string or an operator
+ *  -   keep track of clicks while use
+ *  -   while numbers are clicked concatenate string until an operator is clicked
+ *  -   store string in n1
+ *  -   increment number count
+ *  -   only allow [+, -, *, /] to be clicked after first number (disable number keys and =)
+ *  -   only allow numbers after first operator enable number keys and disable operators
+ *  -   while numbers are clicked concatenate string until an operator is clicked
+ *  -   store string in n2
+ *  -   once one number is clicked enable the = opertor button
+ *  -   once = is clicked call operate and update display with the answer
+ * @param {*} str
  */
-const buttons = document.querySelectorAll(".button");
-
 buttons.forEach((button) => {
   button.addEventListener("click", (event) => {
     updateDisplay(event.target.textContent);
   });
 });
 
+/**
+ *
+ */
+function initializeCalculator() {
+  num1 = num2 = 0;
+  enableOperators = enableEquals = false;
+  enableNumbers = true;
+  updateDisplay("0");
+}
 function updateDisplay(str) {
-  const display = document.querySelector("#display");
+  // initialize calculator
   display.value = str;
 }
+
+initializeCalculator();
