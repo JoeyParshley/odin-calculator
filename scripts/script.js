@@ -7,11 +7,18 @@
  */
 
 /**
+ * Create two number variables and an operator
+ */
+const num1 = 0;
+const num2 = 0;
+const operaator = "";
+
+/**
  * add
  *
- * @param {*} a
- * @param {*} b
- * @returns sum of two numbers
+ * @param {*} a     number
+ * @param {*} b     number
+ * @returns         number - sum of two numbers
  */
 function add(a, b) {
   return a + b;
@@ -20,9 +27,9 @@ function add(a, b) {
 /**
  * subtract
  *
- * @param {*} a
- * @param {*} b
- * @returns difference of two numbers
+ * @param {*} a     number
+ * @param {*} b     number
+ * @returns         number - difference of two numbers
  */
 function subtract(a, b) {
   return a - b;
@@ -31,9 +38,9 @@ function subtract(a, b) {
 /**
  * multiply
  *
- * @param {*} a
- * @param {*} b
- * @returns product of two numbers
+ * @param {*} a     number
+ * @param {*} b     number
+ * @returns         number - product of two numbers
  */
 function multiply(a, b) {
   return a * b;
@@ -42,18 +49,39 @@ function multiply(a, b) {
 /**
  * divide
  *
- * @param {*} a
- * @param {*} b
- * @returns quotient of two numbers
+ * @param {*} a     number
+ * @param {*} b     number
+ * @returns         number - quotient of two numbers
  */
 function divide(a, b) {
   return a / b;
 }
 
 /**
- * Create two number variables and an operator
+ *
+ * @param {*} operator string +, -, *, /
+ * @param {*} a         number
+ * @param {*} b         number
  */
+function operate(operator, a, b) {
+  switch (operator) {
+    case "+":
+      add(a, b);
+      break;
 
-const num1 = 0;
-const num2 = 0;
-const operaator = "";
+    case "-":
+      subtract(a, b);
+      break;
+
+    case "*":
+      multiply(a, b);
+      break;
+
+    case "/":
+      divide(a, b);
+      break;
+
+    default:
+      break;
+  }
+}
